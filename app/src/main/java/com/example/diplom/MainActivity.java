@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.TextView;
+import com.example.diplom.settings.Settings;
 
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textTest;
+    private GoogleRecognize googleRecognize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +29,16 @@ public class MainActivity extends AppCompatActivity {
     {
         textTest = findViewById(R.id.textTest);
     }
-    public void onClickMic(View view)
-    {
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.ENGLISH);
-        startActivityForResult(intent, 10);
+
+    public void openSettings(View view) {
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
     }
 
+    public void onClickMic(View view)
+    {
+        startActivityForResult(googleRecognize.getIntent(), 10);
+    }
 
 
     @Override
@@ -52,4 +56,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 }

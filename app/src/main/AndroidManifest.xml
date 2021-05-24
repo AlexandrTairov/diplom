@@ -18,6 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".settings.Settings"/>
+        <activity android:name=".settings.GeneralSettings"/>
+        <activity android:name=".settings.MQTTSettings"/>
+        <activity android:name=".settings.RecognizeSettings"/>
     </application>
 
 </manifest>

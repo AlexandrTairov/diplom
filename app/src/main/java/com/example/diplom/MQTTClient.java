@@ -72,4 +72,7 @@ public class MQTTClient {
             e.printStackTrace();
         }
     }
+
+    public void publishMessage(String topic, String value) {
+    }
 }

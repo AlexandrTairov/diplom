@@ -28,5 +28,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textTest"
             app:layout_constraintVertical_bias="0.812" />
+    <Button
+            android:text="Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button2"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" android:onClick="openSettings"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

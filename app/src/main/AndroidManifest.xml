@@ -23,6 +23,10 @@
         <activity android:name=".settings.GeneralSettings"/>
         <activity android:name=".settings.MQTTSettings"/>
         <activity android:name=".settings.RecognizeSettings"/>
+        <activity android:name=".database.DBClear"/>
+        <activity android:name=".topics.TopicsAddActivity"/>
+        <activity android:name=".topics.TopicsShowActivity"/>
+        <activity android:name=".topics.TopicHelper"/>
     </application>
 
 </manifest>

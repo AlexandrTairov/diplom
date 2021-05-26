@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.Nullable;
-import com.example.diplom.Database;
+import com.example.diplom.database.DBClear;
 import com.example.diplom.R;
+import com.example.diplom.topics.TopicsAddActivity;
+import com.example.diplom.topics.TopicsShowActivity;
 
 public class GeneralSettings extends Activity {
 
@@ -21,7 +23,18 @@ public class GeneralSettings extends Activity {
         startActivity(intent);
     }
 
-    public void clearDatabase() {
-        Database.clearDatabase();
+    public void setupTopics(View view) {
+        Intent intent = new Intent(this, TopicsAddActivity.class);
+        startActivity(intent);
+    }
+
+    public void clearDatabase(View view) {
+        Intent intent = new Intent(this, DBClear.class);
+        startActivity(intent);
+    }
+
+    public void showTopics(View view) {
+        Intent intent = new Intent(this, TopicsShowActivity.class);
+        startActivity(intent);
     }
 }

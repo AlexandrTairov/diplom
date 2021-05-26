@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent" android:visibility="visible"
+                                                   android:background="#2D3A42" android:onClick="onClick">
+
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical" android:id="@+id/frameLayout" tools:ignore="MissingConstraints">
+
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="#009849"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" app:titleTextColor="#FFFFFF"
+                    app:titleTextAppearance="@style/TextAppearance.AppCompat.Large" app:title="Clear database"
+                    app:titleMarginBottom="10dp" app:titleMarginStart="70dp"/>
+
+        </LinearLayout>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:src="@drawable/back_draw"
+                android:id="@+id/imageButton3"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="30dp" android:background="#009849"
+                android:onClick="back" android:contentDescription="TODO" android:visibility="visible"/>
+
+    </FrameLayout>
+
+
+    <TextView
+            android:text="Do you really want to clear database?"
+            android:layout_width="306dp"
+            android:layout_height="96dp" android:id="@+id/textView"
+            android:background="#2D3A42" android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+            android:layout_marginTop="48dp" app:layout_constraintHorizontal_bias="0.495"/>
+    <Button
+            android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm"
+            app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:shadowColor="#FAF7F7" android:backgroundTint="#E80C0C" android:textColor="#FFFFFF"
+            android:onClick="onClick">
+    </Button>
+</androidx.constraintlayout.widget.ConstraintLayout>

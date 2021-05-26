@@ -43,12 +43,20 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
             app:layout_constraintTop_toBottomOf="@+id/frameLayout" android:layout_marginTop="10dp"/>
     <TextView
+            android:text="List topics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView21"
+            android:textColor="#FFFFFF" android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
+            android:onClick="showTopics" app:layout_constraintTop_toBottomOf="@+id/textView1"
+            android:layout_marginTop="20dp"/>
+    <TextView
             android:text="Setup topics"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView2"
             android:textColor="#FFFFFF" android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
-            android:onClick="setupTopics" app:layout_constraintTop_toBottomOf="@+id/textView1"
+            android:onClick="setupTopics" app:layout_constraintTop_toBottomOf="@+id/textView21"
             android:layout_marginTop="20dp"/>
     <TextView
             android:text="Default values"

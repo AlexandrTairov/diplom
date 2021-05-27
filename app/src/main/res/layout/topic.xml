@@ -21,14 +21,15 @@
             android:layout_height="wrap_content" android:id="@+id/textView1"
             android:textColor="#009849" android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/title"/>
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:layout_marginTop="20dp"/>
     <Switch
             android:text="Active"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/switch1"
             android:textColor="#FFFFFF" android:textSize="30sp"
             app:layout_constraintTop_toBottomOf="@+id/textView1"
-            android:layout_marginTop="10dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp" app:layout_goneMarginRight="50dp"
             android:switchPadding="212dp" tools:ignore="UseSwitchCompatOrMaterialXml"/>
     <TextView
@@ -45,7 +46,7 @@
             android:layout_height="wrap_content" android:id="@+id/switch2"
             android:textColor="#FFFFFF" android:textSize="30sp"
             app:layout_constraintTop_toBottomOf="@+id/textView8"
-            android:layout_marginTop="10dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp" app:layout_goneMarginRight="50dp"
             android:switchPadding="150dp" tools:ignore="UseSwitchCompatOrMaterialXml"
             />
@@ -62,9 +63,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView4"
             android:textColor="#FFFFFF" android:textSize="36sp"
-            android:onClick="openAddressSettings"
+            android:onClick="openTopicNameChange"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" android:layout_marginTop="20dp"
             />
     <TextView
             android:text="Enter alternate topic name"
@@ -80,33 +81,25 @@
             android:layout_height="wrap_content" android:id="@+id/textView2"
             android:textColor="#009849" android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" android:layout_marginTop="10dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView5" android:layout_marginTop="20dp"/>
     <TextView
             android:text="Select actions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView6"
             android:textColor="#FFFFFF" android:textSize="36sp"
-            android:onClick="openAddressSettings"
+            android:onClick="selectActions"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" android:layout_marginTop="10dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView2" android:layout_marginTop="20dp"/>
     <TextView
-            android:text="TTS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView3"
-            android:textColor="#009849" android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
-            tools:layout_editor_absoluteY="348dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
-            android:layout_marginTop="10dp"/>
-    <TextView
-            android:text="Select actions"
+            android:text="Delete topic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView7"
-            android:textColor="#FFFFFF" android:textSize="36sp"
-            android:onClick="openAddressSettings"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" android:layout_marginTop="10dp"
-            />
+            android:textColor="#F71414" android:textSize="30sp"
+            android:onClick="deleteTopic"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="125dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" android:layout_marginTop="20dp"
+    />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

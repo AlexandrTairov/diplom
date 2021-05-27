@@ -5,10 +5,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.Nullable;
 import com.example.diplom.R;
 import com.example.diplom.database.DBHelper;
@@ -36,15 +41,6 @@ public class TopicHelper extends Activity {
             textView.setGravity(1);
             textView.setText(title);
         }
-//        setContentView(textView);
-//        databaseHelper = new DBHelper(getApplicationContext());
-//
-//        db = databaseHelper.getReadableDatabase();
-////        userCursor = db.rawQuery("select * from MQTT where NAME = " + " ", null);
-//        String[] headers = new String[] {"name", "value", "active", "dashboard", "alter_name"};
-//        userAdapter = new SimpleCursorAdapter(this, R.layout.custom_item,
-//                userCursor, headers, new int[]{R.id.text}, 0);
-//        title.setAdapter(userAdapter);
     }
 
     public void back(View view) {
@@ -52,4 +48,35 @@ public class TopicHelper extends Activity {
         startActivity(intent);
     }
 
+    public void deleteTopic(View view) {
+        databaseHelper = new DBHelper(this);
+        db = databaseHelper.getWritableDatabase();
+        TextView Text = findViewById(R.id.title);
+        String name = Text.getText().toString();
+        int count = db.delete("MQTT", "NAME = " + "'" + name + "'", null);
+        db.close();
+        Log.d("myLog ", String.valueOf(count));
+        if (count > 0) {
+            LayoutInflater inflater = getLayoutInflater();
+            View layout = inflater.inflate(R.layout.custom_toast,
+                    (ViewGroup) findViewById(R.id.toast_layout));
+
+            TextView text = (TextView) layout.findViewById(R.id.text);
+            text.setText("Successfully deleted");
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setView(layout);
+            toast.show();
+
+            back(view);
+        }
+    }
+
+    public void openTopicNameChange(View view) {
+    }
+
+    public void selectActions(View view) {
+    }
 }

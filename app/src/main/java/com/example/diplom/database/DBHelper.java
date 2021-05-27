@@ -18,12 +18,12 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.d(LOG_TAG, "--- on Create database mqtt---");
 
         db.execSQL("create table MQTT ("
-                + "_id integer primary key autoincrement,"
-                + "name text,"
-                + "value text,"
-                + "active integer,"
-                + "dashboard integer,"
-                + "alter_name text" + ");");
+                + "_ID integer primary key autoincrement,"
+                + "NAME text,"
+                + "VALUE text,"
+                + "ACTIVE integer,"
+                + "DASHBOARD integer,"
+                + "ALTER_NAME text" + ");");
     }
 
     @Override

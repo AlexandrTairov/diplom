@@ -26,11 +26,6 @@ public class Settings extends Activity {
         startActivity(intent);
     }
 
-    public void openRecognizeSettings(View view) {
-        Intent intent = new Intent(this, RecognizeSettings.class);
-        startActivity(intent);
-    }
-
     public void back(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

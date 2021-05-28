@@ -42,9 +42,7 @@ public class MQTTDBClear extends Activity implements View.OnClickListener {
 
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
 
-        Log.d("myLogs", "--- Clear mqtt: ---");
         int clearCount = db.delete("mqtt", null, null);
-        Log.d("myLogs", "deleted rows count = " + clearCount);
 
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.custom_toast,

@@ -15,7 +15,6 @@ public class UserDBHelper  extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d(LOG_TAG, "--- on Create database actions---");
 
         db.execSQL("create table USER ("
                 + "_id integer primary key autoincrement,"

@@ -1,29 +1,29 @@
 package com.example.diplom;
 
+import android.util.Log;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.*;
 
 class Mqtt3PostPropertyMessageListener implements IMqttMessageListener {
     @Override
     public void messageArrived(String var1, MqttMessage var2) throws Exception {
-        System.out.println("reply topic  : " + var1);
-        System.out.println("reply payload: " + var2.toString());
+        Log.d("myLog ", "reply topic  : " + var1);
+        Log.d("myLog ", "reply payload: " + var2.toString());
     }
 }
 
 public class MQTTClient {
 
-    public static void userMethod() {
+    public static void userMethod(String topic0, String value, String username, String password, String address) {
         String productKey = "a1X2bEnP82z";
-        String deviceName = "example1";
         String deviceSecret = "ga7XA6KdlEeiPXQPpRbAjOZXwG8ydgSe";
 
         MqttSign sign = new MqttSign();
-        sign.calculate(productKey, deviceName, deviceSecret);
+        sign.calculate(productKey, username, deviceSecret);
 
-        System.out.println("username: " + sign.getUsername());
-        System.out.println("password: " + sign.getPassword());
-        System.out.println("clientid: " + sign.getClientid());
+        Log.d("myLog ", "username: " + sign.getUsername());
+        Log.d("myLog ", "password: " + sign.getPassword());
+        Log.d("myLog ", "clientid: " + sign.getClientid());
 
         //使用Paho连接阿里云物联网平台
         String port = "443";
@@ -40,39 +40,40 @@ public class MQTTClient {
             connOpts.setUserName(sign.getUsername());
             connOpts.setPassword(sign.getPassword().toCharArray());
             sampleClient.connect(connOpts);
-            System.out.println("broker: " + broker + " Connected");
+            Log.d("myLog ", "broker: " + broker + " Connected");
 
             //Paho Mqtt 消息订阅
-            String topicReply = "/sys/" + productKey + "/" + deviceName + "/thing/event/property/post_reply";
+            String topicReply = "/sys/" + productKey + "/" + username + "/thing/event/property/post_reply";
             sampleClient.subscribe(topicReply, new Mqtt3PostPropertyMessageListener());
-            System.out.println("subscribe: " + topicReply);
+            Log.d("myLog ", "subscribe: " + topicReply);
 
             //Paho Mqtt 消息发布
-            String topic = "/sys/" + productKey + "/" + deviceName + "/thing/event/property/post";
+            String topic = "/sys/" + productKey + "/" + username + "/thing/event/property/post";
             String content = "{\"id\":\"1\",\"version\":\"1.0\",\"params\":{\"LightSwitch\":1}}";
             MqttMessage message = new MqttMessage(content.getBytes());
             message.setQos(0);
             sampleClient.publish(topic, message);
-            System.out.println("publish: " + content);
+            Log.d("myLog ", "publish: " + content);
 
             Thread.sleep(2000);
 
             //Paho Mqtt 断开连接
             sampleClient.disconnect();
-            System.out.println("Disconnected");
+            Log.d("myLog ", "Disconnected");
             System.exit(0);
         } catch (MqttException e) {
-            System.out.println("reason " + e.getReasonCode());
-            System.out.println("msg " + e.getMessage());
-            System.out.println("loc " + e.getLocalizedMessage());
-            System.out.println("cause " + e.getCause());
-            System.out.println("excep " + e);
+            Log.d("myLog ", "reason " + e.getReasonCode());
+            Log.d("myLog ", "msg " + e.getMessage());
+            Log.d("myLog ", "loc " + e.getLocalizedMessage());
+            Log.d("myLog ", "cause " + e.getCause());
+            Log.d("myLog ", "excep " + e);
             e.printStackTrace();
         } catch (InterruptedException e ) {
             e.printStackTrace();
         }
     }
 
-    public void publishMessage(String topic, String value) {
+    public void publishMessage(String topic, String value, String username, String password, String address) {
+        userMethod(topic, value, username, password, address);
     }
 }

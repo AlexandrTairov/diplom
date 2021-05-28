@@ -4,28 +4,26 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import androidx.annotation.Nullable;
 
-public class ActionDBHelper extends SQLiteOpenHelper {
+public class AddressDBHelper extends SQLiteOpenHelper {
 
     final String LOG_TAG = "myLogs";
 
-    public ActionDBHelper(Context context) {
-        super(context, "actions", null, 1);
+    public AddressDBHelper(Context context) {
+        super(context, "address", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("create table ACTIONS ("
+        db.execSQL("create table ADDRESS ("
                 + "_id integer primary key autoincrement,"
-                + "ACTION_VALUE text,"
-                + "TOPIC_NAME text" + ");");
+                + "ADDRESS text" + ");");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS ACTIONS");
+        db.execSQL("DROP TABLE IF EXISTS ADDRESS");
         onCreate(db);
     }
 }

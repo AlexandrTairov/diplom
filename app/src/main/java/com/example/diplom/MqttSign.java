@@ -31,11 +31,21 @@ public class MqttSign {
 
     private String clientid = "";
 
+//    private String address = "";
+
+//    public MqttSign(String username, String password, String address) {
+//        this.username = username;
+//        this.password = password;
+//        this.address = address;
+//    }
+
     public String getUsername() { return this.username;}
 
     public String getPassword() { return this.password;}
 
     public String getClientid() { return this.clientid;}
+
+//    public String getAddress() { return this.address;}
 
     public void calculate(String productKey, String deviceName, String deviceSecret) {
         if (productKey == null || deviceName == null || deviceSecret == null) {
@@ -43,16 +53,13 @@ public class MqttSign {
         }
 
         try {
-            //MQTT用户名
             this.username = deviceName + "&" + productKey;
 
-            //MQTT密码
             String timestamp = Long.toString(System.currentTimeMillis());
             String plainPasswd = "clientId" + productKey + "." + deviceName + "deviceName" +
                     deviceName + "productKey" + productKey + "timestamp" + timestamp;
             this.password = CryptoUtil.hmacSha256(plainPasswd, deviceSecret);
 
-            //MQTT ClientId
             this.clientid = productKey + "." + deviceName + "|" + "timestamp=" + timestamp +
                     ",_v=paho-java-1.0.0,securemode=2,signmethod=hmacsha256|";
         }catch (Exception e) {

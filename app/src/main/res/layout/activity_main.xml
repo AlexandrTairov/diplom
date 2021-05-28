@@ -7,15 +7,6 @@
                                                    app:popupTheme="@style/AppTheme.PopupOverlay"
                                                    tools:context=".MainActivity">
 
-    <TextView
-            android:id="@+id/te0xtTest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.115" />
     <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
@@ -35,11 +26,35 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp" android:onClick="openSettings"/>
     <Button
-            android:text="Drop Database"
+            android:text="Drop Database MQTT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/button3"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="32dp" android:layout_marginEnd="44dp"
     android:onClick="dropDatabase"/>
+    <Button
+            android:text="Drop Database Action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button4"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="100dp" android:layout_marginEnd="44dp"
+            android:onClick="dropDatabaseAction"
+            app:layout_constraintTop_toBottomOf="@+id/button3"/>
+    <Button
+            android:text="Drop Database Address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button5"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="150dp" android:layout_marginEnd="32dp"
+            android:onClick="dropDatabaseAddress"
+            app:layout_constraintTop_toBottomOf="@+id/button4"/>
+    <Button
+            android:text="Drop Database User"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button6"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="200dp" android:layout_marginEnd="44dp"
+            android:onClick="dropDatabaseUser"
+            app:layout_constraintTop_toBottomOf="@+id/button5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

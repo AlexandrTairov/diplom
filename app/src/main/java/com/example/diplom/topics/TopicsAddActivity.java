@@ -59,7 +59,6 @@ public class TopicsAddActivity extends Activity implements View.OnClickListener 
         cv.put("value", value);
 
         long rowID = db.insert("mqtt", null, cv);
-        Log.d("myLogs", "row inserted, ID = " + rowID);
         databaseHelper.close();
 
         LayoutInflater inflater = getLayoutInflater();

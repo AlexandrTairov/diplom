@@ -17,6 +17,7 @@ import android.widget.*;
 import com.example.diplom.R;
 import com.example.diplom.database.ActionDBHelper;
 import com.example.diplom.database.MQTTDBHelper;
+import com.example.diplom.settings.MQTTSettings;
 
 public class TopicHelper extends Activity {
 
@@ -26,7 +27,7 @@ public class TopicHelper extends Activity {
     SQLiteDatabase db;
     Cursor userCursor;
     SimpleCursorAdapter userAdapter;
-    int isActive, isDashboard;
+    int isActive, isDashboard, isSubscribe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,15 @@ public class TopicHelper extends Activity {
         } else {
             switchDashboard.setChecked(true);
         }
+        userCursor = db.rawQuery("select SUBSCRIBE from MQTT WHERE NAME = '" + title + "'", null);
+        userCursor.moveToFirst();
+        isSubscribe = userCursor.getInt(userCursor.getColumnIndex("SUBSCRIBE"));
+        Switch switchSubscribe = findViewById(R.id.switch0);
+        if (isSubscribe == 0) {
+            switchSubscribe.setChecked(false);
+        } else {
+            switchSubscribe.setChecked(true);
+        }
     }
 
     @Override
@@ -90,8 +100,6 @@ public class TopicHelper extends Activity {
         final SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         sqLiteDatabase.delete("ACTIONS", "TOPIC_NAME = " + "'" + name + "'", null);
 
-
-        Log.d("myLog ", String.valueOf(count));
         if (count > 0) {
             LayoutInflater inflater = getLayoutInflater();
             View layout = inflater.inflate(R.layout.custom_toast,
@@ -160,25 +168,21 @@ public class TopicHelper extends Activity {
                         cv.put("TOPIC_NAME", title);
                         cv.put("ACTION_VALUE", "Turn on");
                         rowID[0] = sqLiteDatabase.insert("ACTIONS", null, cv);
-                        Log.d("myLogs", "row inserted, ID = " + rowID[0]);
                         break;
                     case 1:
                         cv.put("TOPIC_NAME", title);
                         cv.put("ACTION_VALUE", "Turn off");
                         rowID[0] = sqLiteDatabase.insert("ACTIONS", null, cv);
-                        Log.d("myLogs", "row inserted, ID = " + rowID[0]);
                         break;
                     case 2:
                         cv.put("TOPIC_NAME", title);
                         cv.put("ACTION_VALUE", "Open");
                         rowID[0] = sqLiteDatabase.insert("ACTIONS", null, cv);
-                        Log.d("myLogs", "row inserted, ID = " + rowID[0]);
                         break;
                     case 3:
                         cv.put("TOPIC_NAME", title);
                         cv.put("ACTION_VALUE", "Close");
                         rowID[0] = sqLiteDatabase.insert("ACTIONS", null, cv);
-                        Log.d("myLogs", "row inserted, ID = " + rowID[0]);
                         break;
                 }
             }
@@ -216,6 +220,21 @@ public class TopicHelper extends Activity {
             cv.put("DASHBOARD", 1);
         } else {
             cv.put("DASHBOARD", 0);
+        }
+        db.update("MQTT", cv, "NAME = ?", new String[]{title});
+
+    }
+
+    public void subscribe(View view) {
+
+        db = databaseHelper.getReadableDatabase();
+        TextView textView = findViewById(R.id.title);
+        final String title = textView.getText().toString();
+        ContentValues cv = new ContentValues();
+        if (isSubscribe == 0) {
+            cv.put("SUBSCRIBE", 1);
+        } else {
+            cv.put("SUBSCRIBE", 0);
         }
         db.update("MQTT", cv, "NAME = ?", new String[]{title});
 

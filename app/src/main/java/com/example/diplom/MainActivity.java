@@ -9,7 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
+import com.example.diplom.database.ActionDBHelper;
+import com.example.diplom.database.AddressDBHelper;
 import com.example.diplom.database.MQTTDBHelper;
+import com.example.diplom.database.UserDBHelper;
 import com.example.diplom.settings.Settings;
 
 
@@ -58,6 +61,13 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(this, Settings.class);
                         startActivity(intent);
                     }
+//                    if (text.get(0).equals("drop database") || text.get(0).equals("сброс") || text.get(0).equals("уничтожить бд")) {
+//                        View view = null;
+//                        dropDatabase(view);
+//                        dropDatabaseUser(view);
+//                        dropDatabaseAddress(view);
+//                        dropDatabaseAction(view);
+//                    }
                     break;
 
             }
@@ -68,7 +78,28 @@ public class MainActivity extends AppCompatActivity {
         MQTTDBHelper mqttdbHelper = new MQTTDBHelper(this);
         SQLiteDatabase sqLiteDatabase;
         sqLiteDatabase = mqttdbHelper.getWritableDatabase();
-        mqttdbHelper.onUpgrade(sqLiteDatabase, 3, 4);
+        mqttdbHelper.onUpgrade(sqLiteDatabase, 1, 2);
+    }
+
+    public void dropDatabaseUser(View view) {
+        UserDBHelper userdbHelper = new UserDBHelper(this);
+        SQLiteDatabase sqLiteDatabase;
+        sqLiteDatabase = userdbHelper.getWritableDatabase();
+        userdbHelper.onUpgrade(sqLiteDatabase, 1, 2);
+    }
+
+    public void dropDatabaseAddress(View view) {
+        AddressDBHelper addressdbHelper = new AddressDBHelper(this);
+        SQLiteDatabase sqLiteDatabase;
+        sqLiteDatabase = addressdbHelper.getWritableDatabase();
+        addressdbHelper.onUpgrade(sqLiteDatabase, 1,2);
+    }
+
+    public void dropDatabaseAction(View view) {
+        ActionDBHelper actiondbHelper = new ActionDBHelper(this);
+        SQLiteDatabase sqLiteDatabase;
+        sqLiteDatabase = actiondbHelper.getWritableDatabase();
+        actiondbHelper.onUpgrade(sqLiteDatabase, 1, 2);
     }
 
 }

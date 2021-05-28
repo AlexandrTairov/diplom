@@ -98,6 +98,14 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
             android:onClick="openPasswordSettings" app:layout_constraintTop_toBottomOf="@+id/textView6"
             android:layout_marginTop="20dp"/>
+    <TextView
+            android:text="Connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView8"
+            android:textColor="#FFFFFF" android:textSize="36sp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="150dp"
+            android:onClick="connect" app:layout_constraintTop_toBottomOf="@+id/textView7"
+            android:layout_marginTop="20dp"/>
 
 
 

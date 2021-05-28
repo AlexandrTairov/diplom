@@ -15,7 +15,6 @@ public class MQTTDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d(LOG_TAG, "--- on Create database mqtt---");
 
         db.execSQL("create table MQTT ("
                 + "_id integer primary key autoincrement,"
@@ -23,7 +22,8 @@ public class MQTTDBHelper extends SQLiteOpenHelper {
                 + "VALUE text,"
                 + "ACTIVE integer,"
                 + "DASHBOARD integer,"
-                + "ALTER_NAME text" + ");");
+                + "ALTER_NAME text,"
+                + "SUBSCRIBE integer" + ");");
     }
 
     @Override

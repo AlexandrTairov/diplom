@@ -26,6 +26,15 @@
         <activity android:name=".topics.TopicsAddActivity"/>
         <activity android:name=".topics.TopicsShowActivity"/>
         <activity android:name=".topics.TopicHelper"/>
+
+<!--        <receiver android:name="BootBroadReceiv"-->
+<!--                  android:enabled="true"-->
+<!--                  android:permission="android.permision.RECEIVE_BOOT_COMPLETED">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
     </application>
 
 </manifest>

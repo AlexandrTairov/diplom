@@ -1,8 +1,15 @@
 package com.example.diplom;
 
+import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -105,6 +112,36 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase sqLiteDatabase;
         sqLiteDatabase = actiondbHelper.getWritableDatabase();
         actiondbHelper.onUpgrade(sqLiteDatabase, 1, 2);
+    }
+
+    public void getUserInfo(View view) {
+
+//        UserDBHelper userdbHelper = new UserDBHelper(this);
+//
+//        ContentValues cv = new ContentValues();
+//        SQLiteDatabase sqLiteDatabase = userdbHelper.getReadableDatabase();
+//
+//        Cursor userCursor = sqLiteDatabase.rawQuery("select * from USER", null);
+//        String name = userCursor.getString(userCursor.getColumnIndex("USERNAME"));
+//        String password = userCursor.getString(userCursor.getColumnIndex("PASSWORD"));
+//
+//        LayoutInflater inflater = getLayoutInflater();
+//        View layout = inflater.inflate(R.layout.user_toast,
+//                (ViewGroup) findViewById(R.id.toast_layout));
+//
+//        TextView text = layout.findViewById(R.id.username);
+//        text.setText(name);
+//        text = layout.findViewById(R.id.password);
+//        text.setText(password);
+//
+//        Toast toast = new Toast(getApplicationContext());
+//        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+//        toast.setDuration(Toast.LENGTH_SHORT);
+//        toast.setView(layout);
+//        toast.show();
+//
+//        sqLiteDatabase.close();
+
     }
 
 }

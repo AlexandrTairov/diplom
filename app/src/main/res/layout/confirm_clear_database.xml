@@ -37,7 +37,7 @@
 
 
     <TextView
-            android:text="Do you really want to clear database?"
+            android:text="Вы правда хотите очистить базу данных?"
             android:layout_width="306dp"
             android:layout_height="96dp" android:id="@+id/textView"
             android:background="#2D3A42" android:textColor="#FFFFFF"
@@ -49,7 +49,7 @@
             android:id="@+id/btnClear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Confirm"
+            android:text="Подтвердить"
             app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginTop="48dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:shadowColor="#FAF7F7" android:backgroundTint="#E80C0C" android:textColor="#FFFFFF"

@@ -44,7 +44,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2" android:layout_marginStart="20dp"
             android:onClick="openMQTTSettings"/>
     <TextView
-            android:text="General"
+            android:text="Основные"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView2"
             android:textColor="#FFFFFF" android:textSize="36sp"
@@ -52,7 +52,7 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
             android:onClick="openGeneralSettings"/>
     <TextView
-            android:text="Setting up a connection to MQTT broker"
+            android:text="Установка соединения с MQTT брокером"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView5"
             android:textColor="#9E9B9B" android:textSize="14sp"

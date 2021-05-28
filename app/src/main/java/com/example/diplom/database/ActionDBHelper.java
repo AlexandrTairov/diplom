@@ -3,12 +3,8 @@ package com.example.diplom.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import androidx.annotation.Nullable;
 
 public class ActionDBHelper extends SQLiteOpenHelper {
-
-    final String LOG_TAG = "myLogs";
 
     public ActionDBHelper(Context context) {
         super(context, "actions", null, 1);

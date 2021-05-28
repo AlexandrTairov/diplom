@@ -8,16 +8,17 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.example.diplom.R;
 import com.example.diplom.database.ActionDBHelper;
 import com.example.diplom.database.MQTTDBHelper;
-import com.example.diplom.settings.MQTTSettings;
 
 public class TopicHelper extends Activity {
 
@@ -26,7 +27,6 @@ public class TopicHelper extends Activity {
     MQTTDBHelper databaseHelper;
     SQLiteDatabase db;
     Cursor userCursor;
-    SimpleCursorAdapter userAdapter;
     int isActive, isDashboard, isSubscribe;
 
     @Override

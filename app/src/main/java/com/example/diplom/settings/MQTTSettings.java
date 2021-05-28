@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.example.diplom.MQTTClient;
-import com.example.diplom.MqttSign;
 import com.example.diplom.R;
 import com.example.diplom.database.AddressDBHelper;
 import com.example.diplom.database.MQTTDBHelper;
@@ -50,7 +49,7 @@ public class MQTTSettings extends Activity {
         database = addressDBHelper.getWritableDatabase();
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setMessage("Enter address to connect");
+        alert.setMessage("Введите адрес подключения");
 
         final EditText input = new EditText(this);
         alert.setView(input);
@@ -88,7 +87,7 @@ public class MQTTSettings extends Activity {
         database = userDBHelper.getWritableDatabase();
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setMessage("Enter username");
+        alert.setMessage("Введите имя пользователя");
 
         final EditText input = new EditText(this);
         alert.setView(input);
@@ -119,7 +118,7 @@ public class MQTTSettings extends Activity {
         database = userDBHelper.getWritableDatabase();
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setMessage("Enter Password");
+        alert.setMessage("Введите пароль");
 
         final EditText input = new EditText(this);
         alert.setView(input);

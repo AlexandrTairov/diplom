@@ -3,11 +3,8 @@ package com.example.diplom.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class AddressDBHelper extends SQLiteOpenHelper {
-
-    final String LOG_TAG = "myLogs";
 
     public AddressDBHelper(Context context) {
         super(context, "address", null, 1);

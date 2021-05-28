@@ -2,6 +2,7 @@ package com.example.diplom;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -61,13 +62,17 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(this, Settings.class);
                         startActivity(intent);
                     }
-//                    if (text.get(0).equals("drop database") || text.get(0).equals("сброс") || text.get(0).equals("уничтожить бд")) {
-//                        View view = null;
-//                        dropDatabase(view);
-//                        dropDatabaseUser(view);
-//                        dropDatabaseAddress(view);
-//                        dropDatabaseAction(view);
-//                    }
+                    if (text.get(0).equals("drop database") || text.get(0).equals("сброс") || text.get(0).equals("уничтожить бд")) {
+                        Button button;
+                        button = findViewById(R.id.button3);
+                        button.performClick();
+                        button = findViewById(R.id.button4);
+                        button.performClick();
+                        button = findViewById(R.id.button5);
+                        button.performClick();
+                        button = findViewById(R.id.button6);
+                        button.performClick();
+                    }
                     break;
 
             }

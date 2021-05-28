@@ -32,7 +32,6 @@ public class MQTTSettings extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mqtt_settings);
     }
-
     public void back(View view) {
         Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
@@ -62,7 +61,7 @@ public class MQTTSettings extends Activity {
                 String value = input.getText().toString();
                 ContentValues cv = new ContentValues();
                 cv.put("ADDRESS", value);
-                database.insert("ADDRESS", null, cv);
+                database.insert("ADDRESS", null ,cv);
 
             }
         });
@@ -100,7 +99,7 @@ public class MQTTSettings extends Activity {
                 String value = input.getText().toString();
                 ContentValues cv = new ContentValues();
                 cv.put("USERNAME", value);
-                database.insert("USER", null, cv);
+                database.insert("USER", null ,cv);
 
             }
         });
@@ -131,7 +130,7 @@ public class MQTTSettings extends Activity {
                 String value = input.getText().toString();
                 ContentValues cv = new ContentValues();
                 cv.put("PASSWORD", value);
-                database.insert("USER", null, cv);
+                database.insert("USER", null ,cv);
 
             }
         });
@@ -166,6 +165,5 @@ public class MQTTSettings extends Activity {
         for (int i = 0; i < names.size(); i++) {
             client.publishMessage(names.get(i), values.get(i), username, password, address);
         }
-
     }
 }

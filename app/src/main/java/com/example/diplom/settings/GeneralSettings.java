@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.Nullable;
-import com.example.diplom.database.DBClear;
+import com.example.diplom.database.MQTTDBClear;
 import com.example.diplom.R;
 import com.example.diplom.topics.TopicsAddActivity;
 import com.example.diplom.topics.TopicsShowActivity;
@@ -29,7 +29,7 @@ public class GeneralSettings extends Activity {
     }
 
     public void clearDatabase(View view) {
-        Intent intent = new Intent(this, DBClear.class);
+        Intent intent = new Intent(this, MQTTDBClear.class);
         startActivity(intent);
     }
 

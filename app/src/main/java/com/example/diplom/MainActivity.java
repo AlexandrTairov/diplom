@@ -1,5 +1,7 @@
 package com.example.diplom;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
-import android.widget.TextView;
-import com.example.diplom.database.DBHelper;
+import com.example.diplom.database.MQTTDBHelper;
 import com.example.diplom.settings.Settings;
 
 
@@ -16,8 +17,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView textTest;
-    private GoogleRecognize googleRecognize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void init()
     {
-        textTest = findViewById(R.id.textTest);
+
     }
 
     public void openSettings(View view) {
@@ -37,24 +36,39 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickMic(View view)
     {
-        startActivityForResult(googleRecognize.getIntent(), 10);
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        startActivityForResult(intent, 10);
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (resultCode == RESULT_OK && data != null)
         {
             switch (requestCode)
             {
                 case 10:
                     ArrayList<String> text =  data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    textTest.setText(text.get(0));
+                    text.add("Open settings");
+                    if (text.get(0).equals("open settings") || text.get(0).equals("настройки") || text.get(0).equals("открой настройки")) {
+                        Intent intent = new Intent(this, Settings.class);
+                        startActivity(intent);
+                    }
                     break;
 
             }
         }
+    }
+
+    public void dropDatabase(View view) {
+        MQTTDBHelper mqttdbHelper = new MQTTDBHelper(this);
+        SQLiteDatabase sqLiteDatabase;
+        sqLiteDatabase = mqttdbHelper.getWritableDatabase();
+        mqttdbHelper.onUpgrade(sqLiteDatabase, 3, 4);
     }
 
 }

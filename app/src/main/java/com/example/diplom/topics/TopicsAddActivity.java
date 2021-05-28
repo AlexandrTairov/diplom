@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
-import com.example.diplom.database.DBHelper;
+import com.example.diplom.database.MQTTDBHelper;
 import com.example.diplom.R;
 import com.example.diplom.settings.GeneralSettings;
 
@@ -23,7 +23,7 @@ public class TopicsAddActivity extends Activity implements View.OnClickListener 
 
     Button btnAdd;
 
-    DBHelper databaseHelper;
+    MQTTDBHelper databaseHelper;
 
     EditText etName, etValue;
 
@@ -37,7 +37,7 @@ public class TopicsAddActivity extends Activity implements View.OnClickListener 
         etName = findViewById(R.id.etName);
         etValue = findViewById(R.id.etValue);
 
-        databaseHelper = new DBHelper(this);
+        databaseHelper = new MQTTDBHelper(this);
     }
 
     public void back(View view) {
@@ -71,7 +71,7 @@ public class TopicsAddActivity extends Activity implements View.OnClickListener 
 
         Toast toast = new Toast(getApplicationContext());
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
         toast.show();
     }

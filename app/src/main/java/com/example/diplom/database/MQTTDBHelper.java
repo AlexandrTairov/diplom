@@ -5,12 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DBHelper extends SQLiteOpenHelper {
+public class MQTTDBHelper extends SQLiteOpenHelper {
 
     final String LOG_TAG = "myLogs";
 
-    public DBHelper(Context context) {
-        super(context, "mqtt", null, 2);
+    public MQTTDBHelper(Context context) {
+        super(context, "mqtt", null, 4);
     }
 
     @Override
@@ -18,7 +18,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.d(LOG_TAG, "--- on Create database mqtt---");
 
         db.execSQL("create table MQTT ("
-                + "_ID integer primary key autoincrement,"
+                + "_id integer primary key autoincrement,"
                 + "NAME text,"
                 + "VALUE text,"
                 + "ACTIVE integer,"
@@ -28,5 +28,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS MQTT");
+        onCreate(db);
     }
 }

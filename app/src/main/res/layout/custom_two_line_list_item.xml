@@ -11,13 +11,13 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginStart="20dp"
-              android:onClick="openTopic"/>
+              />
 
     <TextView android:id="@android:id/text2"
               android:textColor="#C5C3C3" android:textSize="24sp"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginStart="20dp"
-              android:onClick="openTopic"/>
+              />
 
 </LinearLayout>

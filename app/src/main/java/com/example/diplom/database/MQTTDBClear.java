@@ -16,11 +16,11 @@ import androidx.annotation.Nullable;
 import com.example.diplom.R;
 import com.example.diplom.settings.GeneralSettings;
 
-public class DBClear extends Activity implements View.OnClickListener {
+public class MQTTDBClear extends Activity implements View.OnClickListener {
 
     Button btnClear;
 
-    DBHelper databaseHelper;
+    MQTTDBHelper databaseHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class DBClear extends Activity implements View.OnClickListener {
         btnClear = findViewById(R.id.btnClear);
         btnClear.setOnClickListener(this);
 
-        databaseHelper = new DBHelper(this);
+        databaseHelper = new MQTTDBHelper(this);
     }
 
     public void back(View view) {
@@ -55,7 +55,7 @@ public class DBClear extends Activity implements View.OnClickListener {
 
         Toast toast = new Toast(getApplicationContext());
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
         toast.show();
 

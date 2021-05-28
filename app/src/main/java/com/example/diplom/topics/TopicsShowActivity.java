@@ -5,23 +5,20 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
+import android.widget.*;
 import com.example.diplom.R;
-import com.example.diplom.database.DBHelper;
+import com.example.diplom.database.MQTTDBHelper;
 import com.example.diplom.settings.GeneralSettings;
 
 public class TopicsShowActivity extends Activity {
 
     ListView topicList;
-    DBHelper databaseHelper;
+    MQTTDBHelper databaseHelper;
     SQLiteDatabase db;
     Cursor userCursor;
     SimpleCursorAdapter userAdapter;
+    String[] headers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +26,25 @@ public class TopicsShowActivity extends Activity {
         setContentView(R.layout.list_of_topics);
         topicList = findViewById(R.id.list);
 
-        databaseHelper = new DBHelper(getApplicationContext());
+        databaseHelper = new MQTTDBHelper(getApplicationContext());
 
         db = databaseHelper.getReadableDatabase();
         userCursor = db.rawQuery("select * from MQTT ", null);
-        String[] headers = new String[] {"name", "value"};
+        headers = new String[] {"NAME", "VALUE"};
         userAdapter = new SimpleCursorAdapter(this, R.layout.custom_two_line_list_item,
                 userCursor, headers, new int[]{android.R.id.text1, android.R.id.text2}, 0);
         topicList.setAdapter(userAdapter);
+
+        topicList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView textView = view.findViewById(android.R.id.text1);
+                String title = textView.getText().toString();
+                Intent intent = new Intent(view.getContext(), TopicHelper.class);
+                intent.putExtra("custom_title", title);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,9 +55,9 @@ public class TopicsShowActivity extends Activity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        // Закрываем подключение и курсор
         db.close();
         userCursor.close();
+
     }
 
     public void back(View view) {
@@ -57,11 +65,4 @@ public class TopicsShowActivity extends Activity {
         startActivity(intent);
     }
 
-    public void openTopic(View view) {
-        Intent intent = new Intent(this, TopicHelper.class);
-        TextView Text = findViewById(android.R.id.text1);
-        String title = Text.getText().toString();
-        intent.putExtra("custom_title", title);
-        startActivity(intent);
-    }
 }

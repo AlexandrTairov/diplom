@@ -3,8 +3,9 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
-                                                   android:layout_height="match_parent" android:visibility="visible"
-                                                   android:background="#2D3A42">
+                                                   android:layout_height="match_parent"
+                                                   android:visibility="visible"
+                                                   android:background="#FFFFFF">
 
     <FrameLayout android:layout_width="match_parent"
                  android:layout_height="wrap_content"
@@ -19,9 +20,9 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="#009849"
+                    android:background="#9473EC"
                     app:popupTheme="@style/AppTheme.PopupOverlay" app:titleTextColor="#FFFFFF"
-                    app:titleTextAppearance="@style/TextAppearance.AppCompat.Large" app:title="Add new topic"
+                    app:titleTextAppearance="@style/TextAppearance.AppCompat.Large" app:title="Добавление нового топика"
                     app:titleMarginBottom="10dp" app:titleMarginStart="70dp"/>
 
         </LinearLayout>
@@ -30,7 +31,7 @@
                 android:layout_height="wrap_content" android:src="@drawable/back_draw"
                 android:id="@+id/imageButton3"
                 android:layout_marginTop="15dp"
-                android:layout_marginStart="30dp" android:background="#009849"
+                android:layout_marginStart="30dp" android:background="#9473EC"
                 android:onClick="back" android:contentDescription="TODO" android:visibility="visible"/>
 
     </FrameLayout>
@@ -50,13 +51,13 @@
                     android:text="Имя топика"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:textColor="#FFFFFF">
+                    android:textColor="#000000">
             </TextView>
             <EditText
                     android:id="@+id/etName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" android:textColor="#FFFFFF">
+                    android:layout_weight="1" android:textColor="#000000">
                 <requestFocus>
                 </requestFocus>
             </EditText>
@@ -71,24 +72,27 @@
                     android:layout_height="wrap_content"
                     android:text="Значение"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp" android:textColor="#FFFFFF">
+                    android:layout_marginRight="5dp" android:textColor="#000000">
             </TextView>
             <EditText
                     android:id="@+id/etValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" android:textColor="#FFFFFF" android:textColorHint="#090909">
+                    android:layout_weight="1" android:textColor="#000000" android:textColorHint="#000000">
             </EditText>
         </LinearLayout>
         <LinearLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="82dp">
             <Button
                     android:id="@+id/btnAdd"
-                    android:layout_width="wrap_content"
+                    android:layout_width="139dp"
                     android:layout_height="wrap_content"
-                    android:text="Добавить топик" android:layout_marginStart="150dp">
+                    android:layout_marginTop="20dp"
+                    android:text="Добавить топик"
+                    android:background="@drawable/button_background"
+                    android:layout_marginStart="100dp">
             </Button>
         </LinearLayout>
     </LinearLayout>

@@ -4,7 +4,7 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent" android:visibility="visible"
-                                                   android:background="#2D3A42" android:onClick="onClick">
+                                                   android:background="#FFFFFF" android:onClick="onClick">
 
     <FrameLayout android:layout_width="match_parent"
                  android:layout_height="wrap_content"
@@ -19,9 +19,9 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="#009849"
+                    android:background="#9473EC"
                     app:popupTheme="@style/AppTheme.PopupOverlay" app:titleTextColor="#FFFFFF"
-                    app:titleTextAppearance="@style/TextAppearance.AppCompat.Large" app:title="Clear database"
+                    app:titleTextAppearance="@style/TextAppearance.AppCompat.Large" app:title="Очистка базы данных"
                     app:titleMarginBottom="10dp" app:titleMarginStart="70dp"/>
 
         </LinearLayout>
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content" android:src="@drawable/back_draw"
                 android:id="@+id/imageButton3"
                 android:layout_marginTop="15dp"
-                android:layout_marginStart="30dp" android:background="#009849"
+                android:layout_marginStart="30dp" android:background="#9473EC"
                 android:onClick="back" android:contentDescription="TODO" android:visibility="visible"/>
 
     </FrameLayout>
@@ -40,7 +40,7 @@
             android:text="Вы правда хотите очистить базу данных?"
             android:layout_width="335dp"
             android:layout_height="139dp" android:id="@+id/textView"
-            android:background="#2D3A42" android:textColor="#FFFFFF"
+            android:background="#FFFFFF" android:textColor="#000000"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/frameLayout"
@@ -48,12 +48,13 @@
             android:textAlignment="center"/>
     <Button
             android:id="@+id/btnClear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="128dp"
+            android:layout_height="65dp"
             android:text="Подтвердить"
             app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginTop="48dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:shadowColor="#FAF7F7" android:backgroundTint="#E80C0C" android:textColor="#FFFFFF"
-            android:onClick="onClick">
+            android:shadowColor="#AEACAC" android:textColor="#000000"
+            android:onClick="onClick"
+            android:background="@drawable/button_background">
     </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

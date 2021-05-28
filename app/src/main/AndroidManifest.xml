@@ -3,14 +3,15 @@
           package="com.example.diplom">
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
+            android:theme="@style/AppTheme"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+            android:label="MyHome">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -27,14 +28,8 @@
         <activity android:name=".topics.TopicsShowActivity"/>
         <activity android:name=".topics.TopicHelper"/>
 
-<!--        <receiver android:name="BootBroadReceiv"-->
-<!--                  android:enabled="true"-->
-<!--                  android:permission="android.permision.RECEIVE_BOOT_COMPLETED">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />-->
-<!--                <category android:name="android.intent.category.DEFAULT" />-->
-<!--            </intent-filter>-->
-<!--        </receiver>-->
+        <service android:name=".ForegroundActivity"/>
+
     </application>
 
 </manifest>

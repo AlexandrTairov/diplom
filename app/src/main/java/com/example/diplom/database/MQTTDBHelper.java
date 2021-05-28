@@ -20,7 +20,8 @@ public class MQTTDBHelper extends SQLiteOpenHelper {
                 + "ACTIVE integer,"
                 + "DASHBOARD integer,"
                 + "ALTER_NAME text,"
-                + "SUBSCRIBE integer" + ");");
+                + "SUBSCRIBE integer,"
+                + "ACTION_VALUE text" + ");");
     }
 
     @Override

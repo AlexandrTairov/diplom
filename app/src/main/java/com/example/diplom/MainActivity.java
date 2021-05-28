@@ -1,15 +1,8 @@
 package com.example.diplom;
 
-import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,10 +11,10 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
 import com.example.diplom.database.ActionDBHelper;
-import com.example.diplom.database.AddressDBHelper;
 import com.example.diplom.database.MQTTDBHelper;
 import com.example.diplom.database.UserDBHelper;
 import com.example.diplom.settings.Settings;
+import com.example.diplom.topics.TopicHelper;
 
 
 import java.util.ArrayList;
@@ -33,11 +26,36 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
-    }
-    private void init()
-    {
+        startService(new Intent(this, ForegroundActivity.class));
 
+        ListView topicList;
+        MQTTDBHelper databaseHelper;
+        SQLiteDatabase db;
+        Cursor userCursor;
+        SimpleCursorAdapter userAdapter;
+        String[] headers;
+
+        topicList = findViewById(R.id.list);
+
+        databaseHelper = new MQTTDBHelper(getApplicationContext());
+
+        db = databaseHelper.getReadableDatabase();
+        userCursor = db.rawQuery("select * from MQTT WHERE SUBSCRIBE = 1", null);
+        headers = new String[] {"NAME", "VALUE"};
+        userAdapter = new SimpleCursorAdapter(this, R.layout.custom_two_line_list_item,
+                userCursor, headers, new int[]{android.R.id.text1, android.R.id.text2}, 0);
+        topicList.setAdapter(userAdapter);
+
+        topicList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView textView = view.findViewById(android.R.id.text1);
+                String title = textView.getText().toString();
+                Intent intent = new Intent(view.getContext(), TopicHelper.class);
+                intent.putExtra("custom_title", title);
+                startActivity(intent);
+            }
+        });
     }
 
     public void openSettings(View view) {
@@ -69,79 +87,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(this, Settings.class);
                         startActivity(intent);
                     }
-                    if (text.get(0).equals("drop database") || text.get(0).equals("сброс") || text.get(0).equals("уничтожить бд")) {
-                        Button button;
-                        button = findViewById(R.id.button3);
-                        button.performClick();
-                        button = findViewById(R.id.button4);
-                        button.performClick();
-                        button = findViewById(R.id.button5);
-                        button.performClick();
-                        button = findViewById(R.id.button6);
-                        button.performClick();
-                    }
                     break;
 
             }
         }
-    }
-
-    public void dropDatabase(View view) {
-        MQTTDBHelper mqttdbHelper = new MQTTDBHelper(this);
-        SQLiteDatabase sqLiteDatabase;
-        sqLiteDatabase = mqttdbHelper.getWritableDatabase();
-        mqttdbHelper.onUpgrade(sqLiteDatabase, 1, 2);
-    }
-
-    public void dropDatabaseUser(View view) {
-        UserDBHelper userdbHelper = new UserDBHelper(this);
-        SQLiteDatabase sqLiteDatabase;
-        sqLiteDatabase = userdbHelper.getWritableDatabase();
-        userdbHelper.onUpgrade(sqLiteDatabase, 1, 2);
-    }
-
-    public void dropDatabaseAddress(View view) {
-        AddressDBHelper addressdbHelper = new AddressDBHelper(this);
-        SQLiteDatabase sqLiteDatabase;
-        sqLiteDatabase = addressdbHelper.getWritableDatabase();
-        addressdbHelper.onUpgrade(sqLiteDatabase, 1,2);
-    }
-
-    public void dropDatabaseAction(View view) {
-        ActionDBHelper actiondbHelper = new ActionDBHelper(this);
-        SQLiteDatabase sqLiteDatabase;
-        sqLiteDatabase = actiondbHelper.getWritableDatabase();
-        actiondbHelper.onUpgrade(sqLiteDatabase, 1, 2);
-    }
-
-    public void getUserInfo(View view) {
-
-//        UserDBHelper userdbHelper = new UserDBHelper(this);
-//
-//        ContentValues cv = new ContentValues();
-//        SQLiteDatabase sqLiteDatabase = userdbHelper.getReadableDatabase();
-//
-//        Cursor userCursor = sqLiteDatabase.rawQuery("select * from USER", null);
-//        String name = userCursor.getString(userCursor.getColumnIndex("USERNAME"));
-//        String password = userCursor.getString(userCursor.getColumnIndex("PASSWORD"));
-//
-//        LayoutInflater inflater = getLayoutInflater();
-//        View layout = inflater.inflate(R.layout.user_toast,
-//                (ViewGroup) findViewById(R.id.toast_layout));
-//
-//        TextView text = layout.findViewById(R.id.username);
-//        text.setText(name);
-//        text = layout.findViewById(R.id.password);
-//        text.setText(password);
-//
-//        Toast toast = new Toast(getApplicationContext());
-//        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-//        toast.setDuration(Toast.LENGTH_SHORT);
-//        toast.setView(layout);
-//        toast.show();
-//
-//        sqLiteDatabase.close();
-
     }
 
 }

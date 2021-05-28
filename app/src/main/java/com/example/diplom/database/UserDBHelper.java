@@ -16,7 +16,9 @@ public class UserDBHelper  extends SQLiteOpenHelper {
         db.execSQL("create table USER ("
                 + "_id integer primary key autoincrement,"
                 + "USERNAME text,"
-                + "PASSWORD text" + ");");
+                + "PASSWORD text,"
+                + "ADDRESS text,"
+                + "CONNECT_ON_LAUNCH integer" + ");");
     }
 
     @Override

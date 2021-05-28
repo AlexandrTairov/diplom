@@ -3,7 +3,7 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   android:background="#2D3A42">
+                                                   android:background="#FFFFFF">
 
     <FrameLayout android:layout_width="match_parent"
                  android:layout_height="wrap_content"
@@ -17,9 +17,9 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="#009849"
+                    android:background="#9473EC"
                     app:popupTheme="@style/AppTheme.PopupOverlay" app:titleTextColor="#FFFFFF"
-                    app:titleTextAppearance="@style/TextAppearance.AppCompat.Large" app:title="Settings"
+                    app:titleTextAppearance="@style/TextAppearance.AppCompat.Large" app:title="Настройки"
                     app:titleMarginBottom="10dp" app:titleMarginStart="70dp"/>
 
         </LinearLayout>
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content" android:src="@drawable/back_draw"
                 android:id="@+id/imageButton3"
                 android:layout_marginTop="15dp"
-                android:layout_marginStart="30dp" android:background="#009849"
+                android:layout_marginStart="30dp" android:background="#9473EC"
                 android:onClick="back" android:contentDescription="TODO" android:visibility="visible"/>
 
 
@@ -36,10 +36,10 @@
 
     <TextView
             android:text="MQTT"
-            android:layout_width="102dp"
-            android:layout_height="45dp" android:id="@+id/textView3"
-            android:textColor="#FFFFFF" android:textSize="36sp"
-            android:layout_marginTop="20dp"
+            android:layout_width="101dp"
+            android:layout_height="33dp" android:id="@+id/textView3"
+            android:textColor="#000000" android:textSize="24sp"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" android:layout_marginStart="20dp"
             android:onClick="openMQTTSettings"/>
@@ -47,15 +47,18 @@
             android:text="Основные"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView2"
-            android:textColor="#FFFFFF" android:textSize="36sp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="85dp"
+            android:textColor="#000000" android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="70dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="20dp"
             android:onClick="openGeneralSettings"/>
     <TextView
             android:text="Установка соединения с MQTT брокером"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView5"
-            android:textColor="#9E9B9B" android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"/>
+            android:textColor="#777777" android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="0dp"
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>

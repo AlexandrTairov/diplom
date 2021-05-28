@@ -204,7 +204,6 @@ public class TopicHelper extends Activity {
                 }
                 db.update("MQTT", cv, "NAME = ?", new String[]{title});
 
-                startActivity(new Intent(view.getContext(), TopicHelper.class));
             }
         });
 

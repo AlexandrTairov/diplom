@@ -32,7 +32,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView1"
             android:layout_marginTop="10dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp" app:layout_goneMarginRight="50dp"
-            android:switchPadding="220dp" tools:ignore="UseSwitchCompatOrMaterialXml"
+            android:switchPadding="180dp" tools:ignore="UseSwitchCompatOrMaterialXml"
             android:onClick="subscribe"/>
     <Switch
             android:text="Активный"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toBottomOf="@+id/switch0"
             android:layout_marginTop="10dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp" app:layout_goneMarginRight="50dp"
-            android:switchPadding="246dp" tools:ignore="UseSwitchCompatOrMaterialXml"
+            android:switchPadding="196dp" tools:ignore="UseSwitchCompatOrMaterialXml"
             android:onClick="changeActive"/>
     <TextView
             android:text="Топик активен?"
@@ -62,7 +62,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView8"
             android:layout_marginTop="10dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp" app:layout_goneMarginRight="50dp"
-            android:switchPadding="20dp" tools:ignore="UseSwitchCompatOrMaterialXml"
+            android:switchPadding="0dp" tools:ignore="UseSwitchCompatOrMaterialXml"
             android:onClick="changeDashboard"
     />
     <TextView

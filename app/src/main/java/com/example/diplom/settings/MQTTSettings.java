@@ -258,25 +258,25 @@ public class MQTTSettings extends Activity {
 
     public void connect(View view) {
 
-        TextView Text = findViewById(R.id.textView6);
-        String username = Text.getText().toString();
-        Text = findViewById(R.id.textView7);
-        String password = Text.getText().toString();
-        Text = findViewById(R.id.textView3);
-        String address = Text.getText().toString();
-
-        MQTTClient client = new MQTTClient();
-        MQTTDBHelper mqttdbHelper = new MQTTDBHelper(view.getContext());
-        database = mqttdbHelper.getReadableDatabase();
-        Cursor userCursor = database.rawQuery("select NAME, VALUE from MQTT WHERE SUBSCRIBE = 1", null);
-        userCursor.moveToFirst();
-        ArrayList<String> names = new ArrayList<>(), values = new ArrayList<>();
-        int count = 0;
-        names.add(userCursor.getString(userCursor.getColumnIndex("NAME")));
-        values.add(userCursor.getString(userCursor.getColumnIndex("VALUE")));
-        for (int i = 0; i < names.size(); i++) {
-            client.publishMessage(names.get(i), values.get(i), username, password, address);
-        }
+//        TextView Text = findViewById(R.id.textView6);
+//        String username = Text.getText().toString();
+//        Text = findViewById(R.id.textView7);
+//        String password = Text.getText().toString();
+//        Text = findViewById(R.id.textView3);
+//        String address = Text.getText().toString();
+//
+//        MQTTClient client = new MQTTClient();
+//        MQTTDBHelper mqttdbHelper = new MQTTDBHelper(view.getContext());
+//        database = mqttdbHelper.getReadableDatabase();
+//        Cursor userCursor = database.rawQuery("select NAME, VALUE from MQTT WHERE SUBSCRIBE = 1", null);
+//        userCursor.moveToFirst();
+//        ArrayList<String> names = new ArrayList<>(), values = new ArrayList<>();
+//        int count = 0;
+//        names.add(userCursor.getString(userCursor.getColumnIndex("NAME")));
+//        values.add(userCursor.getString(userCursor.getColumnIndex("VALUE")));
+//        for (int i = 0; i < names.size(); i++) {
+//            client.publishMessage(names.get(i), values.get(i), username, password, address);
+//        }
 
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.custom_toast,

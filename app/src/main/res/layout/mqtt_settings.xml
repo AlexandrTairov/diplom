@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView1"
             android:layout_marginTop="10dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp" app:layout_goneMarginRight="50dp"
-            android:switchPadding="55dp" tools:ignore="UseSwitchCompatOrMaterialXml"
+            android:switchPadding="35dp" tools:ignore="UseSwitchCompatOrMaterialXml"
     android:onClick="changeConnectOnLaunch"/>
 
     <TextView

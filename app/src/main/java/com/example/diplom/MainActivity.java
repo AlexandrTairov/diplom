@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         databaseHelper = new MQTTDBHelper(getApplicationContext());
 
         db = databaseHelper.getReadableDatabase();
-        userCursor = db.rawQuery("select * from MQTT WHERE SUBSCRIBE = 1", null);
+        userCursor = db.rawQuery("select * from MQTT WHERE DASHBOARD = 1", null);
         headers = new String[] {"NAME", "VALUE"};
         userAdapter = new SimpleCursorAdapter(this, R.layout.custom_two_line_list_item,
                 userCursor, headers, new int[]{android.R.id.text1, android.R.id.text2}, 0);

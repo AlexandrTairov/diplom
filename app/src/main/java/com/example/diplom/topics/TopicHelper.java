@@ -139,7 +139,7 @@ public class TopicHelper extends Activity {
                     (ViewGroup) findViewById(R.id.toast_layout));
 
             TextView text = (TextView) layout.findViewById(R.id.text);
-            text.setText("Successfully deleted");
+            text.setText("Успешно удалено");
 
             Toast toast = new Toast(getApplicationContext());
             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
@@ -171,7 +171,7 @@ public class TopicHelper extends Activity {
         subscribe = userCursor.getInt(userCursor.getColumnIndex("SUBSCRIBE"));
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setMessage("Enter alter topic name");
+        alert.setMessage("Введите альтернативное имя топика");
 
         final EditText input = new EditText(this);
         alert.setView(input);
@@ -221,8 +221,8 @@ public class TopicHelper extends Activity {
         TextView textView = findViewById(R.id.title);
         final String title = textView.getText().toString();
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Choose action");
-        String[] items = {"Turn on", "Turn off", "Open", "Close"};
+        alert.setTitle("Выберите действие");
+        String[] items = {"Включить", "Выключить", "Открыть", "Закрыть"};
         databaseHelper = new MQTTDBHelper(view.getContext());
         final SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
         final ContentValues cv = new ContentValues();
@@ -231,19 +231,19 @@ public class TopicHelper extends Activity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case 0:
-                        cv.put("ACTION_VALUE", "Turn on");
+                        cv.put("ACTION_VALUE", "Включить");
                         sqLiteDatabase.update("MQTT", cv, "NAME = '" + title + "'", null);
                         break;
                     case 1:
-                        cv.put("ACTION_VALUE", "Turn off");
+                        cv.put("ACTION_VALUE", "Выключить");
                         sqLiteDatabase.update("MQTT", cv, "NAME = '" + title + "'", null);
                         break;
                     case 2:
-                        cv.put("ACTION_VALUE", "Open");
+                        cv.put("ACTION_VALUE", "Открыть");
                         sqLiteDatabase.update("MQTT", cv, "NAME = '" + title + "'", null);
                         break;
                     case 3:
-                        cv.put("ACTION_VALUE", "Close");
+                        cv.put("ACTION_VALUE", "Закрыть");
                         sqLiteDatabase.update("MQTT", cv, "NAME = '" + title + "'", null);
                         break;
                 }

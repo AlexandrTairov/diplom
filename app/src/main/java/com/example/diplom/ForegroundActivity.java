@@ -50,20 +50,4 @@ public class ForegroundActivity extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
-//    private void startForeground() {
-//
-//        Intent notificationIntent = new Intent(this, MainActivity.class);
-//
-//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
-//                notificationIntent, 0);
-//
-//        startForeground(NOTIF_ID, new NotificationCompat.Builder(this,
-//                NOTIF_CHANNEL_ID) // don't forget create a notification channel first
-//                .setOngoing(true)
-//                .setSmallIcon(R.mipmap.ic_launcher)
-//                .setContentTitle(getString(R.string.app_name))
-//                .setContentText("Service is running background")
-//                .setContentIntent(pendingIntent)
-//                .build());
-//    }
 }
